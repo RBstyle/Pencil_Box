@@ -1,0 +1,8 @@
+{% extends 'host/base.html' %}
+
+{% block content %}
+    {% for file in object_list %}
+        <a href="/downlad/{{UploadList.id}}"> <h3>{{UploadList.filename}}</h3>></a>
+    {% endfor %}
+{% endblock %}
+1
