@@ -1,9 +1,7 @@
-from django.shortcuts import render
-from django.template import  RequestContext
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
-from django.views.generic import ListView, DetailView
 from download.models import UploadList
+
 
 def download(request):
     f = UploadList.objects.get(id=request.POST['file_id'])
@@ -13,6 +11,10 @@ def download(request):
     ip = request.META['REMOTE_ADDR']
     if ip == key_ip:
         response = HttpResponse(file, content_type='multipart/form-data')
-        response['Content-Disposition'] = 'attachment; filename='+ file_name
+        response['Content-Disposition'] = 'attachment; filename=' + file_name
         return response
-    return  HttpResponseRedirect('/')
+    return HttpResponseRedirect('/')
+
+
+def link(request):
+    return HttpResponseRedirect('/')

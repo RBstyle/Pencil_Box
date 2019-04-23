@@ -2,12 +2,13 @@
 
 {% block content %}
     {% for file in object_list %}
-    <form action="download/" method="POST">{% csrf_token %}
+    <form action="download/" method="POST">
+        {% csrf_token %}
         <input type="hidden" name="file_id" value="{{file.id}}">
-        <p>{{file.id}},{{file.ip_address}},{{file.upload}}</p>
-        <button type="submit" class="btn btn-link">{{file.filename}}</button>    
+        <p>Имя файла: {{file.filename}}</p>
+        <button type="submit" class="btn btn-link">Скачать файл</button>
+        <hr style="width: 100%; color: black; height: 1px; background-color:black;">
     </form>
-    <a href="/">111</a>
+    
     {% endfor %}
 {% endblock %}
-1

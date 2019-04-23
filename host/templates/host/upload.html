@@ -2,8 +2,9 @@
 
 {% block content %}
     <h1>Здесь приглашение к загрузке</h1>
-    <form method="POST" enctype="multipart/form-data" action="">{% csrf_token %}
-        <input type="file" name="file">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Сохранить</button>
     </form>
 {% endblock %}

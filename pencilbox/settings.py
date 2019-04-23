@@ -124,3 +124,8 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'files/')
 
 MEDIA_URL = '/files/'
+
+FILE_UPLOAD_HANDLERS = [
+    'django.core.files.uploadhandler.MemoryFileUploadHandler',
+    'django.core.files.uploadhandler.TemporaryFileUploadHandler'
+]
