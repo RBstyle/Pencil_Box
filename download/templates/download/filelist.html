@@ -2,7 +2,12 @@
 
 {% block content %}
     {% for file in object_list %}
-        <a href="/downlad/{{UploadList.id}}"> <h3>{{UploadList.filename}}</h3>></a>
+    <form action="download/" method="POST">{% csrf_token %}
+        <input type="hidden" name="file_id" value="{{file.id}}">
+        <p>{{file.id}},{{file.ip_address}},{{file.upload}}</p>
+        <button type="submit" class="btn btn-link">{{file.filename}}</button>    
+    </form>
+    <a href="/">111</a>
     {% endfor %}
 {% endblock %}
 1
