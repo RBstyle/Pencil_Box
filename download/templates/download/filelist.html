@@ -3,10 +3,8 @@
 {% block content %}
     {% for file in object_list %}
     <form action="download/" method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="file_id" value="{{file.id}}">
-        <p>Имя файла: {{file.filename}}</p>
-        <button type="submit" class="btn btn-link">Скачать файл</button>
+        <p>Имя файла: {{file.filename}}</p><br>
+        <a href="download/{{file.id}}">Сылка на страницу скачивания</a>
         <hr style="width: 100%; color: black; height: 1px; background-color:black;">
     </form>
     

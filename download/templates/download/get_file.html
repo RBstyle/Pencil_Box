@@ -1,0 +1,16 @@
+{% extends 'host/base.html' %}
+
+{% block content %}
+{% if access == False %}
+    <h1>Отакзано в доступе</h1>
+{% else %}
+    <h1>Досту к файлу {{ UploadList.filename }} разрешен.</h1>
+    <label for="link">Ссылка:</label>
+    <input type="text" readonly id="link" class="form-control " name="filename" value="{{ request.build_absolute_uri }}" size="100%">
+    <form action="/upllist/download/{{id}}/" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="file_id" value="{{id}}">
+        <button type="submit" class="btn btn-link">Скачать файл</button>
+    </form>
+{% endif %}
+{% endblock %}

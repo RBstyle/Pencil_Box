@@ -11,5 +11,5 @@ urlpatterns = [
                           template_name='download/filelist.html'
                          )
          ),
-    path('download/', views.download),
+    path('download/<int:id>/', views.get_file)
 ]
